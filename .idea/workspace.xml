@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="1750be17-1095-42dc-99a9-d11b033955ae" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="crudexample" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1Z47HQyzKsmti8zXW0fLNuUtkCQ" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1750be17-1095-42dc-99a9-d11b033955ae" name="Default Changelist" comment="" />
+      <created>1584086425104</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1584086425104</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.css" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="147" y="23" key="SettingsEditor" timestamp="1584424541693">
+      <screen x="0" y="23" width="1280" height="777" />
+    </state>
+    <state x="147" y="23" key="SettingsEditor/0.23.1280.777@0.23.1280.777" timestamp="1584424541693" />
+    <state x="370" y="150" width="540" height="524" key="StructurePopup" timestamp="1585806447196">
+      <screen x="0" y="23" width="1280" height="777" />
+    </state>
+    <state x="370" y="150" width="540" height="524" key="StructurePopup/0.23.1280.777@0.23.1280.777" timestamp="1585806447196" />
+    <state x="319" y="244" key="com.intellij.ide.util.TipDialog" timestamp="1585113993842">
+      <screen x="0" y="23" width="1280" height="777" />
+    </state>
+    <state x="319" y="244" key="com.intellij.ide.util.TipDialog/0.23.1280.777@0.23.1280.777" timestamp="1585113993842" />
+    <state width="600" height="424" key="javadoc.popup" timestamp="1585223259746">
+      <screen x="0" y="23" width="1280" height="777" />
+    </state>
+    <state width="600" height="424" key="javadoc.popup/0.23.1280.777@0.23.1280.777" timestamp="1585223259746" />
+    <state x="305" y="124" width="670" height="676" key="search.everywhere.popup" timestamp="1585248279737">
+      <screen x="0" y="23" width="1280" height="777" />
+    </state>
+    <state x="305" y="124" width="670" height="676" key="search.everywhere.popup/0.23.1280.777@0.23.1280.777" timestamp="1585248279737" />
+  </component>
+</project>

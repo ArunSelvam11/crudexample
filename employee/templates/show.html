@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap.js"></script>
+
+    <title>Employee Records</title>
+     {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+
+</head>
+<body>
+
+  <!-- Another starts -->
+  <form method="get" action="/show/" >
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="inputName">Enter Name</label>
+            <input class="form-control" type="text" placeholder="Search.." id="inputName" name="searchbox" value="{{searchbox}}">
+        </div>
+    </div>
+    <div class="form-row">
+      <div class="col-sm-10">
+          <button class="btn btn-primary my-sm-0" type="submit">Search</button>
+      </div>
+    </div>
+  </form>
+
+  <div class="mt-2 col-md-12">
+      <br>
+      <p>Last Modified : {{ timestamp }}</p>
+      <br>
+  </div>
+
+  <!-- Search ends-->
+
+<table class="table table-striped table-bordered table-sm">
+    <thead class="thead-dark">
+    <tr>
+        <th>Employee ID</th>
+        <th>Employee Name</th>
+        <th>Employee Email</th>
+        <th>Employee Contact</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+{% for employee in page_obj %}
+    <tr>
+        <td>{{ employee.eid }}</td>
+        <td>{{ employee.ename }}</td>
+        <td>{{ employee.eemail }}</td>
+        <td>{{ employee.econtact }}</td>
+        <td>
+            <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+            <a href="/edit/{{ employee.id }}" class="btn btn-secondary">Edit</a>
+
+            </div>
+
+            <!-- Modal -->
+            <button data-whatever="{{ employee.id }}" class="btn btn-danger open-modal" data-toggle="modal" data-target="#deleteModal">Delete</button>
+
+
+
+
+            <!-- <a href="/delete/{{ employee.id }}" onclick="return confirm('Are you sure you want to delete this?')" type="button" class="btn btn-danger">Delete</a> -->
+
+        </td>
+    </tr>
+{% endfor %}
+
+{% for message in messages %}
+  <div class="alert {{ message.tags }} alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    {{ message }}
+  </div>
+{% endfor %}
+
+    </tbody>
+</table>
+<br>
+<br>
+<center><a href="/add" class="btn btn-primary" role="button">Add New Record</a></center>
+<br>
+<br>
+
+  {% if page_obj.has_other_pages %}
+  <ul class="pagination">
+    {% if page_obj.has_previous %}
+      <li><a href="?searchbox={{ searchbox }}&page={{ page_obj.previous_page_number }}">&laquo;Previous</a></li>
+    {% else %}
+      <li class="disabled"><span>&laquo;</span></li>
+    {% endif %}
+    {% for i in page_obj.paginator.page_range %}
+      {% if page_obj.number == i %}
+        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+      {% else %}
+        <li><a href="?searchbox={{ searchbox }}&page={{ i }}">{{ i }}</a></li>
+      {% endif %}
+    {% endfor %}
+    {% if page_obj.has_next %}
+      <li><a href="?searchbox={{ searchbox }}&page={{ page_obj.next_page_number }}">&raquo;Next</a></li>
+    {% else %}
+      <li class="disabled"><span>&raquo;</span></li>
+    {% endif %}
+  </ul>
+{% endif %}
+
+  <!--
+<div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div> -->
+
+
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Delete Confirmation</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure ?</p>
+                </div>
+                <div class="modal-footer">
+                    <form>
+                        <div class="form-group">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <a href="/delete/{{ employee.id }}" data-id="deleteButton" class="btn btn-danger">Delete</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        $('#exampleModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget)
+            var recipient = button.data('whatever')
+            console.log(recipient)
+            var modal = $(this)
+            modal.find('.modal-title').text('New message to ' + recipient)
+            modal.find('.modal-body input').val(recipient)
+        })
+    </script>
+
+</body>
+</html>
